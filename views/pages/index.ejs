@@ -1,0 +1,39 @@
+<html lang="en">
+<% include ../partials/header %>
+
+  <body>
+    <% include ../partials/nav %>
+  <div class="container">
+  <div class="row">
+    <div class="col-md-12 box">
+      <div class="col-md-3 user">
+
+      </div>
+      <div class="col-md-9 person">
+      <!-- <div class="chat"> -->
+        <div class="row">
+          <div class="col-sm-12 chat">
+            <ul id="messages-area" class="list-group"></ul>
+          </div>
+        </div>
+        <div class="row">
+        <div class="row col-sm-12  writer">
+    <form class="col-md-12" id="form" onsubmit="return false;">
+      <div class="form-group col-md-11">
+        <input id="new-message" autocomplete="off" type="text" class="form-control" placeholder="Enter Message">
+      </div>
+<button type="submit" class="send btn col-md-1" onclick="sendFunction()">Send</button>
+      </form>
+    </div>
+</div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+       <% include ../partials/footer %>
+        <% include ../partials/scripts %>
+  </body>
+
+</html>
