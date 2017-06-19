@@ -3,45 +3,43 @@
 
   <body>
     <% include ../partials/nav %>
-  <div class="container">
+<div class="container">
+<div class="row box">
+<div class="col-md-3 user">
+  <div class="row" id="person">
+    <div class="col-md-12">
+    	<ul id="people-area" class="list-group"></ul>
+    </div>
+  </div>
   <div class="row">
-    <div class="col-md-12 box">
-      <div class="col-md-3 user">
-
-      </div>
-      <div class="col-md-9 person">
-      <!-- <div class="chat"> -->
-        <div class="row">
-          <div class="col-sm-12 chat">
-            <ul id="messages-area" class="list-group"></ul>
-          </div>
-        </div>
-        <div class="row">
-        <div class="row col-sm-12  writer">
-    <form class="col-md-12" id="form" onsubmit="return false;">
-      <div class="form-group col-md-11">
-        <input id="new-message" autocomplete="off" type="text" class="form-control" placeholder="Enter Message">
-      </div>
-<button type="submit" class="send btn col-md-1" onclick="sendFunction()">Send</button>
-      </form>
-    </div>
+	<div class="" id="login">
+		<form class="form-inline col-md-12">
+  		<input type="text" autocomplete="off" class="textfield input-small col-md-8" placeholder="Enter name" id="name">
+			 <input type="button" name="join" id="join" value="Join" class="btn col-md-3">
+		</form>
+	</div>
+  </div>
 </div>
-      </div>
+<div class="col-md-9" id="chat">
+  <div class="row chat-up">
+    <div class="col-md-12">
+    	<ul id="message-area" class="list-group"></ul>
     </div>
-
   </div>
+  <div class="row">
+	<div class="" id="chat-box">
+		<form id="2" class="form-inline col-md-12">
+  			<input type="text" autocomplete="off" class="textfield input col-md-11" placeholder="Enter message" id="msg">
+			<!-- <input type="button" name="send" id="send" value="Send" class="btn col-md-1"> -->
+		</form>
+	</div>
   </div>
+</div>
+</div>
+</div>
+</div>
+</div>
   <script src="/socket.io/socket.io.js"></script>
-  <!-- <script type="text/javascript">
-  var socket = io();
-    function sendFunction() {
-      socket.emit('new message', $('#new-message').val());
-      $('#new-message').val('');
-    }
-    socket.on('chat message', function(msg){
-      $('#messages-area').append($('<li>').text(msg));
-    });
-  </script> -->
        <% include ../partials/footer %>
         <% include ../partials/scripts %>
   </body>

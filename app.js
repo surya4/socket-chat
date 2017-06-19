@@ -46,32 +46,31 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
 var sapiens = {};
 
 // start listen with socket.io
 app.io.on('connection', function(socket){
-
-  console.log('New user joined chat');
-
-  socket.on('new message', function(msg){
+  socket.broadcast.on('join', function(name){
      sapiens[socket.id] = name;
-    console.log('new message: ' + msg);
-    app.io.emit('chat message', msg);
-    client.emit("update", "You have connected to the server");
-    app.io.emit("update", name + " has joined the server.")
-    app.io.emit("update-people", people);
+    console.log('New Person joined: ' + name);
+    // app.io.emit('chat message', name);
+    socket.emit("update", "You're' connected to the chat");
+    app.io.emit("update", name + " has joined the chat.")
+    app.io.emit("update-people", sapiens);
   });
 
   socket.on("send", function(msg){
+    console.log(sapiens[socket.id]+' says: ' + msg);
         app.io.emit("chat", sapiens[socket.id], msg);
     });
 
 
-  socket.on('disconnect', function(msg){
-    app.io.emit("update", sapiens[socket.id] + " has left the server.");
+  socket.on('disconnect', function(){
+    app.io.emit("update", sapiens[socket.id] + " has left the chat.");
         delete sapiens[socket.id];
         app.io.emit("update-people", sapiens);
-    console.log('One user disconnected');
+        console.log('One user disconnected');
   });
 });
 
