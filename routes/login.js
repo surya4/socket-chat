@@ -16,7 +16,7 @@ router.post('/', function(req, res) {
     if (!err) {
       var username = req.body.username;
       var pass = req.body.password;
-      query = "select upass,name,email from user where uname = '" + username + "';";
+      query = "select upass,name,email from users where uname = '" + username + "';";
       connection.query(query, function(err, rows) {
         var passw = req.body.password;
         if (bcrypt.compareSync(pass, bcrypt.hashSync(passw, 10))) {

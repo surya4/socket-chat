@@ -1,5 +1,4 @@
 var socket = io();
-
   function sendFunction() {
     socket.emit('new message', $('#new-message').val());
     $('#new-message').val('');

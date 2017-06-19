@@ -4,7 +4,7 @@ var pool = mysql.createPool({
   host: 'localhost',
   user: 'root',
   password: 'computer',
-  database: 'login'
+  database: 'chatapp'
 });
 
 exports.getConnection = function(callback) {

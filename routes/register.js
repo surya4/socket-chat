@@ -19,7 +19,7 @@ db.getConnection(function(err, connection){
          var ucpass = req.body.confirmpassword;
          var hashp = bcrypt.hashSync(upass, 10);
          if (upass === ucpass) {
-           query = "INSERT INTO `login`.`user` (`uname`, `upass`, `name`,`email`) VALUES ('"+uname+"', '"+hashp+"', '"+name+"', '"+uemail+"')";
+           query = "INSERT INTO `chatapp`.`users` (`username`, `password`, `name`,`email`) VALUES ('"+uname+"', '"+hashp+"', '"+name+"', '"+uemail+"')";
            connection.query(query , function(err, rows) {
              res.render('pages/register');
              console.log("Successfull");
